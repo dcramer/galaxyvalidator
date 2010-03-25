@@ -1,0 +1,4 @@
+*.pyc
+/galaxyvalidator/local_settings.py
+.DS_Store
+pip-log.txt
