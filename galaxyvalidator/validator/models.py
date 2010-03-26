@@ -28,7 +28,9 @@ class Result(models.Model):
     def get_results(self):
         types = {}
         for line in self.split_output():
-            types.setdefault(line[0], 0) = types[line[0]] + 1
+            if line[0] not in types:
+                types[line[0]] = 0
+            types[line[0]] += 1
         return types
     
     def process(self):
