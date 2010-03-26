@@ -10,7 +10,7 @@
 	{% else %}
 		<ul class="result-messages">
 			{% for error, lineno, message in result.split_output() %}
-				<li class="{{ error|lower }}"><span class="lineno">{{ lineno }}</span> {{ message }}</li>
+				<li class="{{ error|lower }} {{ loop.cycle(error|lower, error|lower + '-alt') }}"><span class="lineno">{{ lineno }}</span> {{ message }}</li>
 			{% endfor %}
 		</ul>
 	{% endif %}
