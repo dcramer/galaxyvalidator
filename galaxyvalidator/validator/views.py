@@ -41,6 +41,9 @@ def results(request, result_id=None):
         #     form = ValidateFileForm(request.POST, request.FILES)
         #     # process uploaded file
         #     # form.cleaned_data['file'].file
+        
+    form = ValidateTextForm(initial={'text': result.text})
+    
     return render_to_response('validator/results.html', locals(), request)
 
 def index(request):

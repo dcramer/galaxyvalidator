@@ -13,5 +13,8 @@
 	
 	<h2>Input</h2>
 	
-	<pre>{{ result.input }}</pre>
+	<form method="POST" action="">
+		{{ form|render_form() }}
+		<input type="submit"/>
+	</form>
 {% endblock %}
