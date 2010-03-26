@@ -6,6 +6,8 @@ from fields import *
 import datetime
 import subprocess
 
+class LapinError(Exception): pass
+
 class Result(models.Model):
     id = UUIDField(primary_key=True, auto=True)
     input = models.TextField()
@@ -15,7 +17,9 @@ class Result(models.Model):
     def process(self):
         args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-        results = p.communicate(input=self.input)[0]
+        results = p.communicate(input=self.input)
+        if results[1]:
+            raise LapinError(results[1])
         return results.split('In file "standard input"', 1)[1].strip()
     
     def __unicode__(self):

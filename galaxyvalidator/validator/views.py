@@ -27,7 +27,10 @@ def results(request, result_id=None):
             form = ValidateTextForm(request.POST)
             if form.is_valid():
                 result = Result(input=form.cleaned_data['text'])
-                result.output = result.process()
+                try:
+                    result.output = result.process()
+                except LapinError, exception:
+                    return render_to_response('validator/error.html', locals(), request)
                 result.save()
                 return HttpResponseRedirect(result.get_absolute_url())
         # elif action == 'upload':
