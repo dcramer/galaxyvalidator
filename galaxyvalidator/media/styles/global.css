@@ -108,7 +108,7 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 .result-messages .warning { background: #FFB; border-color: #EEA; }
 .result-messages .warning-alt { background: #FFD; border-color: #DD8; }
 .result-messages .lineno { padding-right: 10px; display: inline-block; min-width: 40px; text-align: right; color: #666; text-align: right; }
-
+#id_text { width: 90%; }
 #new-post { position: absolute; right: 20px; top: 20px; }
 /*#input { position: absolute; bottom: 200px; }
 #output { position: absolute; bottom: 0; height: 200px; }*/
