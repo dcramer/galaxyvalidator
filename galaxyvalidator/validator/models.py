@@ -18,14 +18,18 @@ class Result(models.Model):
     def process(self):
         args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-        results = p.communicate(input=self.input)
+        
+        results = []
+        for line in self.input.split('\n')
+            results.append(p.communicate(input=self.input))
+        results = '\n'.join(results)
         if results[1]:
             raise LapinError(results[1])
         results = results[0].split('In file "standard input"', 1)
         if len(results) == 1:
             self.success = True
         else:
-            self.output = results[1].strip()
+            self.output = results[1].strip().split('\n\n')[0]
             self.success = False
     
     def __unicode__(self):
