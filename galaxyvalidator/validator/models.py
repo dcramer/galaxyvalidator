@@ -27,7 +27,7 @@ class Result(models.Model):
         if results[1]:
             raise LapinError(results[1])
 
-        self.output = results
+        self.output = results[0]
         return
 
         results = output.split('In file "standard input"', 1)
