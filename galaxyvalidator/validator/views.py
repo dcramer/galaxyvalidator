@@ -1,6 +1,7 @@
 from coffin import shortcuts
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 
 from models import Result, LapinError
 
@@ -19,7 +20,7 @@ from forms import *
 
 def results(request, result_id=None):
     if result_id:
-        result = Result.objects.get(pk=result_id)
+        result = get_object_or_404(Result, pk=result_id)
         # XXX: remove this when it works
         result.process()
         result.save()
