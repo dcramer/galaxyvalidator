@@ -19,11 +19,11 @@ class Result(models.Model):
     
     def split_output(self):
         for line in self.output.split('\n'):
-            data = line.split(':', 3)
-            if len(data) == 3:
-                yield data[0], data[1].rsplit(' ', 1)[-1], data[2]
+            data = line.split(':')
+            if data[0].lower() == 'warning':
+                yield 'Warning', data[1].rsplit(' ', 1)[-1], ':'.join(data[2:])
             else:
-                yield 'Error', data[0].rsplit(' ', 1)[-1], data[1]
+                yield 'Error', data[0].rsplit(' ', 1)[-1], ':'.join(data[1:])
     
     def get_results(self):
         types = {}
