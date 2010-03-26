@@ -21,17 +21,20 @@ class Result(models.Model):
         output = StringIO()
         
         args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
-        p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=output)
+        p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         
         results = p.communicate(input=self.input)
         if results[1]:
             raise LapinError(results[1])
 
+        self.output = results
+        return
+
         results = output.split('In file "standard input"', 1)
         if len(results) == 1:
             self.success = True
         else:
-            self.output = results[1].strip().split('\n\n')[0]
+            self.output = results[1].strip().split('\n')
             self.success = False
     
     def __unicode__(self):
