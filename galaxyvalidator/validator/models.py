@@ -19,7 +19,7 @@ class Result(models.Model):
     
     def process(self):
         args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
-        p = subprocess.Popen(args, stdin=StringIO(self.input), stdout=subprocess.PIPE)
+        p = subprocess.Popen(args, stdin=self.input, stdout=subprocess.PIPE)
         
         results = p.communicate()
         if results[1]:
