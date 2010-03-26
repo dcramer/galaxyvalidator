@@ -92,7 +92,7 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 #wrapper { padding: 20px; position: relative; }
 #header h1 {
 	margin-top: 0;
-	font-size: 3em;
+	font-size: 2em;
 	font-weight: normal;
 }
 #header h1 a { text-decoration: none; }
@@ -111,7 +111,7 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 .result-messages .warning-alt { background: #FFD; border-color: #DD8; }
 .result-messages .lineno { padding-right: 10px; padding-left: 5px; display: inline-block; min-width: 50px; text-align: right; color: #666; text-align: right; }
 #id_text { width: 99%; }
-#new-post { position: absolute; right: 20px; top: 20px; }
+#new-post { position: absolute; right: 20px; top: 10px; }
 /*#input { position: absolute; bottom: 200px; }
 #output { position: absolute; bottom: 0; height: 200px; }*/
 
