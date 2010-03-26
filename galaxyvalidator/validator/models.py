@@ -3,6 +3,8 @@ from django.conf import settings
 
 from fields import *
 
+from cStringIO import StringIO
+
 import datetime
 import subprocess
 
@@ -16,14 +18,16 @@ class Result(models.Model):
     date_added = models.DateTimeField(default=datetime.datetime.now)
     
     def process(self):
+        output = StringIO()
+        
         args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
-        p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=output)
         
         results = p.communicate(input=self.input)
         if results[1]:
             raise LapinError(results[1])
 
-        results = results[0].split('In file "standard input"', 1)
+        results = output.split('In file "standard input"', 1)
         if len(results) == 1:
             self.success = True
         else:
