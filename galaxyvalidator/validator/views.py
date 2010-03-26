@@ -33,6 +33,10 @@ def results(request, result_id=None):
                     return render_to_response('validator/error.html', locals(), request)
                 result.save()
                 return HttpResponseRedirect(result.get_absolute_url())
+            else:
+                return index(request)
+        else:
+            return index(request)
         # elif action == 'upload':
         #     form = ValidateFileForm(request.POST, request.FILES)
         #     # process uploaded file
