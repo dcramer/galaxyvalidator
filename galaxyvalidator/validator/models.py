@@ -24,8 +24,8 @@ class Result(models.Model):
         results = results[0].split('In file "standard input"', 1)
         if len(results) == 1:
             self.success = True
-            self.output = results[1].strip()
         else:
+            self.output = results[1].strip()
             self.success = False
     
     def __unicode__(self):
