@@ -18,7 +18,7 @@ class Result(models.Model):
     date_added = models.DateTimeField(default=datetime.datetime.now)
     
     _input = None
-    def _get_input(self):
+    def get_input(self):
         if not self._input:
             self._input = self.input.split('\n')
         return self._input
