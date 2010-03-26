@@ -8,7 +8,7 @@
 	{% if result.success %}
 		<p>There were no errors found parsing this Galaxy Script.</p>
 	{% else %}
-		<ul>
+		<ul class="result-messages">
 			{% for error, lineno, message in result.split_output() %}
 				<li class="{{ error|lower }}"><span class="lineno">{{ lineno }}</span> {{ message }}</li>
 			{% endfor %}

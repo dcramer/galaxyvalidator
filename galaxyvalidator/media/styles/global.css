@@ -101,6 +101,6 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 	margin-top: 20px;
 }
 
-.results .error { background: #E88; }
-.results .warning { background: #EEA; }
-.results .lineno { padding-right: 5px; border-right: 4px solid #eee; text-align: right; color: #14445E; text-align: right; }
+.result-messages .error { background: #E88; }
+.result-messages .warning { background: #EEA; }
+.result-messages .lineno { padding-right: 5px; border-right: 4px solid #eee; text-align: right; color: #14445E; text-align: right; }
