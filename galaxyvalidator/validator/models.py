@@ -23,4 +23,4 @@ class Result(models.Model):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('results.details', (), {'result_id': self.id})
+        return ('validator.results', (), {'result_id': self.id})
