@@ -1,7 +1,7 @@
 {% extends "bone/bone.html" %}
 
 {% block content %}
-	<p><strong><a href="{% url validator %}">New Post</a></strong></p>
+	<p id="new-post"><strong><a href="{% url validator %}">New Post</a></strong></p>
 	
 	<div style="overflow:auto;" id="input">
 		<h2>Input</h2>
@@ -13,7 +13,7 @@
 		</form>
 	</div>
 	
-	<div style="overflow:auto;">
+	<div style="overflow:auto;" id="output">
 		<h2>Results</h2>
 
 		{% if result.success %}
