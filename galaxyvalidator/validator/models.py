@@ -16,5 +16,5 @@ class Result(models.Model):
         args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         results = p.communicate(input=self.input)[0]
-        return results.split('In file "standard input"')[1].strip()
+        return results.split('In file "standard input"', 1)[1].strip()
         
