@@ -20,7 +20,10 @@ class Result(models.Model):
         results = p.communicate(input=self.input)
         if results[1]:
             raise LapinError(results[1])
-        return results[0].split('In file "standard input"', 1)[1].strip()
+        results = results[0].split('In file "standard input"', 1)
+        if len(results) != 2:
+            raise LapinError(results[0])
+        return results[1].strip()
     
     def __unicode__(self):
         return self.input[:200]
