@@ -3,6 +3,13 @@
 {% block content %}
 	<p id="new-post"><strong><a href="{% url validator %}">New Post</a></strong></p>
 	
+	{% if result.success %}
+		<p class="validity valid">There were no errors found parsing this Galaxy Script.</p>
+	{% else %}
+		<p class="validity invalid">Errors found while checking this document.</p>
+	{% else %}
+	
+	
 	<div style="overflow:auto;" id="input">
 		<h2>Input</h2>
 
@@ -14,11 +21,9 @@
 	</div>
 	
 	<div style="overflow:auto;" id="output">
-		<h2>Results</h2>
+		{% if not result.success %}
+			<h2>Validation Errors</h2>
 
-		{% if result.success %}
-			<p>There were no errors found parsing this Galaxy Script.</p>
-		{% else %}
 			<ul class="result-messages">
 				{% for error, lineno, message in result.split_output() %}
 					<li class="{{ error|lower }} {{ loop.cycle(error|lower, error|lower + '-alt') }}"><span class="lineno">{{ lineno }}</span> {{ message }}</li>

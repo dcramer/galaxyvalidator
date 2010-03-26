@@ -180,3 +180,34 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 .linedwrap .codelines .lineselect {
 	color: red;
 }
+
+.validity {
+	border-color: black;
+	font-family: 'Bitstream Vera Sans', sans-serif;
+	font-size: 1.3em;
+	font-style: normal;
+	font-weight: 500;
+	letter-spacing: normal;
+	margin: 0px;
+	padding-bottom: 0.2em;
+	padding-top: 0.2em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: none;
+	word-spacing: normal;
+}
+
+.valid {
+	background-color: #55B05A;
+	color: white;
+}
+
+.invalid {
+	background-color: #D23D24;
+	color: white;
+}
+
+.has-warnings {
+	color:#CFAC08;
+	background-color: white;
+}

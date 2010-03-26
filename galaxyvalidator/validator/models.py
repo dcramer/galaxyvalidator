@@ -18,12 +18,18 @@ class Result(models.Model):
     date_added = models.DateTimeField(default=datetime.datetime.now)
     
     def split_output(self):
-        for line in self.output.split('\n'):
+        for line in self.output.split('\n', 3):
             data = line.split(':', 2)
             if len(data) == 3:
                 yield data[0], data[1].rsplit(' ', 1)[-1], data[2]
             else:
                 yield 'Error', data[0].rsplit(' ', 1)[-1], data[1]
+    
+    def get_results(self):
+        types = {}
+        for line in self.split_output():
+            types.setdefault(line[0], 0) += 1
+        return types
     
     def process(self):
         output = StringIO()
