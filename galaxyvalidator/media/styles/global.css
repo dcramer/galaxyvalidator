@@ -110,7 +110,7 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 .result-messages .warning { background: #FFB; border-color: #EEA; }
 .result-messages .warning-alt { background: #FFD; border-color: #DD8; }
 .result-messages .lineno { padding-right: 10px; padding-left: 5px; display: inline-block; min-width: 50px; text-align: right; color: #666; text-align: right; }
-#id_text { width: 99%; height: 50%; }
+#id_text { width: 99%; height: 70%; }
 #new-post { position: absolute; right: 20px; top: 10px; }
 /*#input { position: absolute; bottom: 200px; }
 #output { position: absolute; bottom: 0; height: 200px; }*/
