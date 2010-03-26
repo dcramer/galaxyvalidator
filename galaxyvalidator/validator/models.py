@@ -31,7 +31,7 @@ class Result(models.Model):
         
         version = results[0]
         
-        results = '\n'.join(results[6:-2]).strip()
+        results = '\n'.join([r.strip() for r in results[6:-4]]).strip()
 
         if not results:
             self.success = True
