@@ -27,14 +27,16 @@ class Result(models.Model):
         if results[1]:
             raise LapinError(results[1])
 
-        self.output = results[0]
-        return
+        results = results[0].split('\n')
+        
+        version = results[0]
+        
+        results = results[6:-2].strip()
 
-        results = output.split('In file "standard input"', 1)
-        if len(results) == 1:
+        if not results:
             self.success = True
         else:
-            self.output = results[1].strip().split('\n')
+            self.output = '\n'.join(results)
             self.success = False
     
     def __unicode__(self):
