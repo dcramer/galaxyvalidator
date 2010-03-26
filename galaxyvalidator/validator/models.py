@@ -20,7 +20,7 @@ class Result(models.Model):
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         
         results = []
-        for line in self.input.split('\n')
+        for line in self.input.split('\n'):
             results.append(p.communicate(input=self.input))
         results = '\n'.join(results)
         if results[1]:
