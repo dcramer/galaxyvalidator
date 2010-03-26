@@ -17,6 +17,9 @@ class Result(models.Model):
     success = models.BooleanField(default=False)
     date_added = models.DateTimeField(default=datetime.datetime.now)
     
+    def get_line(self, lineno):
+        return self.output.split('\n')[lineno]
+    
     def split_output(self):
         for line in self.output.split('\n'):
             data = line.split(':')

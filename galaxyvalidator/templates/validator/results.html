@@ -6,7 +6,7 @@
 	{% if result.success %}
 		<p class="validity valid">There were no errors found parsing this Galaxy Script.</p>
 	{% else %}
-		<p class="validity invalid">{% for type, count in result.get_results().iteritems() %}{{ count }} {{ type }}s{% if not loop.last %}, {% endif %}{% endfor %} found while checking this document.</p>
+		<p class="validity invalid">{% for type, count in result.get_results().iteritems() %}{% if not loop.first %}, {% if loop.last %}and {% endif %}{% endif %}{{ count }} {{ type|lower }}s{% endfor %} found while checking this document.</p>
 	{% endif %}
 	
 	
@@ -26,7 +26,7 @@
 
 			<ul class="result-messages">
 				{% for error, lineno, message in result.split_output() %}
-					<li class="{{ error|lower }} {{ loop.cycle(error|lower, error|lower + '-alt') }}"><span class="lineno">{{ lineno }}</span> {{ message }}<br/><pre>{{ result.output[lineno] }}</pre></li>
+					<li class="{{ error|lower }} {{ loop.cycle(error|lower, error|lower + '-alt') }}"><span class="lineno">{{ lineno }}</span> {{ message }}<br/><pre>{{ result.get_line(lineno) }}</pre></li>
 				{% endfor %}
 			</ul>
 		{% endif %}
