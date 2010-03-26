@@ -37,9 +37,9 @@ def results(request, result_id=None):
                 result.save()
                 return HttpResponseRedirect(result.get_absolute_url())
             else:
-                return index(request)
+                return HttpResponseRedirect('/')
         else:
-            return index(request)
+            return HttpResponseRedirect('/')
         # elif action == 'upload':
         #     form = ValidateFileForm(request.POST, request.FILES)
         #     # process uploaded file
