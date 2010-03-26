@@ -13,10 +13,10 @@ class Result(models.Model):
     date_added = models.DateTimeField(default=datetime.datetime.now)
     
     def process(self):
-        args = ['sh', settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
+        args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
         print args
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-        results = p.communicate(self.input)[0]
+        results = p.communicate(input=self.input)[0]
         self.output = results
         print results
         
