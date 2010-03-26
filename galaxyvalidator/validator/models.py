@@ -14,6 +14,7 @@ class Result(models.Model):
     
     def process(self):
         args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
+        print args
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
         results = p.communicate(self.input)[0]
         self.output = results
