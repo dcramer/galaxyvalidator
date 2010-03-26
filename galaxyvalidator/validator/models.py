@@ -3,6 +3,8 @@ from django.conf import settings
 
 from fields import *
 
+from cStringIO import StringIO
+
 import datetime
 import subprocess
 
@@ -19,13 +21,10 @@ class Result(models.Model):
         args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         
-        results = []
-        for line in self.input.split('\n'):
-            data = p.communicate(input=line)
-            if data[1]:
-                raise LapinError(results[1])
-            results.append(data[0])
-        results = '\n'.join(results)
+        results = p.communicate(StringIO(self.input))
+        if results[1]:
+            raise LapinError(results[1])
+
         results = results[0].split('In file "standard input"', 1)
         if len(results) == 1:
             self.success = True
