@@ -97,8 +97,8 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 }
 #header h1 a { text-decoration: none; }
 #footer {
-	line-height: 1.5em;
-	color: #333;
+	line-height: 1.8em;
+	color: #666;
 	margin-top: 20px;
 }
 
