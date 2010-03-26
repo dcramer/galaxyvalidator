@@ -102,7 +102,7 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 
 .result-messages { padding-left: 0; margin-left: 0; list-style-type: none; line-height: 1.6em; }
 .result-messages code { padding: 0 5px; }
-.result-messages li { border-bottom: 1px solid #666; }
+.result-messages li { border-bottom: 1px solid #eee; }
 .result-messages .error { background: #FDC; border-color: #E99; }
 .result-messages .error-alt { background: #FED; border-color: #E88; }
 .result-messages .warning { background: #FFB; border-color: #EEA; }
