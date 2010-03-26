@@ -1,0 +1,141 @@
+// ============
+// =Functions =
+// ============
+
+bool hasShown = false;
+bool firstWave = true;
+bool secondWave = true;
+//int randomCount = 0;
+
+
+int UnitCount(int player, string unitName)
+{
+  return AITechCount(player,unitName,c_techCountCompleteOnly);
+}
+
+void DoAttack(int player)
+{
+  AIWaveMerge(player, c_waveMain, c_waveAttack);
+  AISetAttackState(player, e_attackState_Attack); 
+}
+
+
+//--------------------------------------------------------------------------------------------------
+//  ZergOpenGnd0
+//--------------------------------------------------------------------------------------------------
+void ZergOpenGnd0 (int player)
+{
+  //randomCount += 1;
+  //DebugAI(IntToStr(randomCount));
+  unitgroup MyUnits;
+  unit theUnit;
+  order theOrd;
+  int roachCount;
+  int theUnitHealth;
+  int j;
+  j = 0;
+  if (hasShown == false)
+  {
+    DebugAI("Welcome To ReeAI Version 0.2!");
+    DebugAI("I hope you enjoy playing!");
+    DebugAI("  - Reelix");
+    hasShown = true;
+  }
+  AISetAPM (player, 2200); // Insane AI - Thanks Doix
+  AIClearStock(player);
+
+  AISetStock( player, 1, c_ZB_Hatchery_Alias );
+  AISetStock( player, 2, "Drone" );
+  AISetStock( player, 1, "Overlord" );
+  AISetStock( player, 10, "Drone" );
+  AISetStock( player, 2, "Overlord" );
+  AISetStock( player, 13, "Drone" );
+  AISetStock( player, 1, "SpawningPool" );
+  AISetStock( player, 1, "Extractor" );
+  AISetStock( player, 6, "Zergling" );
+  AISetStock( player, 1, "Queen" );
+  AISetStock( player, 3, "Overlord" );
+
+  // And so it begins
+
+  AISetStock( player, 1, "RoachWarren" );
+  AISetStock( player, 1, "Lair" );
+  AISetStock( player, 1, "Burrow");
+  AISetStock( player, 8, "Zergling" );
+  AISetStock( player, 1, "Roach" );
+  AISetStock( player, 5, "Roach" );
+  if (firstWave)
+  {
+    if (UnitCount(player, "Roach") == 5)
+    {
+      DebugAI("Sending First Wave!");
+      firstWave = false;
+      AISetStock( player, 0, "Zergling" ); // Stop building them
+      DoAttack ( player );
+      MyUnits = AIFindUnits(player, "Roach", AIWaveTargetGatherOPoint(player, 1), 500, c_noMaxCount) ;
+      AIAttackWaveUseGroup (player, MyUnits);
+    }
+  }
+  AISetStock( player, 1, "EvolutionChamber" );
+  AISetStock( player, 12, "Drone" );
+  AISetStock( player, 2, "Extractor" );
+  AISetStock( player, 1, "ZergMissileWeaponsLevel1" );
+  AISetStock( player, 7, "Roach" );
+  if (secondWave)
+  {
+    if (UnitCount(player, "Roach") == 7)
+    {
+      DebugAI("Sending Second Wave!");
+      secondWave = false;
+      DoAttack ( player );
+      MyUnits = AIFindUnits(player, "Roach", AIWaveTargetGatherOPoint(player, 1), 500, c_noMaxCount) ;
+      AIAttackWaveUseGroup (player, MyUnits);
+    }
+  }
+  AISetStock( player, 4, "Overlord" );
+  AISetStock( player, 2, "EvolutionChamber" );
+  AISetStock( player, 9, "Roach" );
+  AISetStock( player, 1, "ZergMissileWeaponsLevel2" );
+  AISetStock( player, 1, "ZergGroundArmorsLevel1" );
+  AISetStock( player, 1, "InfestationPit");
+  AISetStock( player, 14, "Roach" );
+  AISetStock( player, 1, "Hive");
+  AISetStock( player, 1, "OrganicCarapace");
+  AISetStock( player, 16, "Roach" );
+  if (UnitCount(player, "Roach") == 16)
+  {
+    DebugAI("Sending Final Wave!");
+    DoAttack ( player );
+    MyUnits = AIFindUnits(player, "Roach", AIWaveTargetGatherOPoint(player, 1), 500, c_noMaxCount) ;
+    AIAttackWaveUseGroup (player, MyUnits);
+  }
+  AISetStock( player, 1, "ZergMissileWeaponsLevel3");
+  AISetStock( player, 1, "ZergGroundArmorsLevel2");
+  AISetStock( player, 1, "ZergGroundArmorsLevel3");
+  AISetStock( player, 20, "Overlord" );
+  AIEnableStock(player);
+
+  // ===========================
+  // =                         =
+  // =  Uber Roach Micro Code! =
+  // =                         =
+  // ===========================
+  roachCount = UnitCount(player, "Roach");
+  MyUnits = AIFindUnits(player, "Roach", AIWaveTargetGatherOPoint(player, 1), 500, c_noMaxCount) ;
+  while (j < roachCount)
+  {
+    theUnit = UnitGroupUnit(MyUnits,j + 1);
+    theUnitHealth = UnitGetPropertyInt(theUnit, c_unitPropVitalityPercent, c_unitPropCurrent);
+    theOrd = AICreateOrder(player, c_AB_BurrowRoachDown, 0);
+    if (theUnitHealth <  80)
+    {
+      theOrd = AICreateOrder(player, c_AB_BurrowRoachDown, 0);
+      AICast(theUnit, theOrd, c_noMarker, c_castHold);
+    }
+    if (AIControlWantsToUnburrow(theUnit))
+    {
+      DebugAI("I want to burrow");
+    }
+    j += 1;
+  }
+}
