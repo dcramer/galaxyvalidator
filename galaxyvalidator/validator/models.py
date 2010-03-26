@@ -28,7 +28,7 @@ class Result(models.Model):
     def process(self):
         output = StringIO()
         
-        args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-']
+        args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-B', 'TriggerLibs/NativeLib_beta.galaxy', '-']
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         
         results = p.communicate(input=self.input)
