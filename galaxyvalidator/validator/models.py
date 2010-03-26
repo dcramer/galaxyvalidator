@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-from validator.fields import *
+from fields import *
 
 import datetime
 import subprocess
