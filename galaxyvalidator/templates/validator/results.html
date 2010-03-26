@@ -6,7 +6,7 @@
 	{% if result.success %}
 		<p class="validity valid">There were no errors found parsing this Galaxy Script.</p>
 	{% else %}
-		<p class="validity invalid">Errors found while checking this document.</p>
+		<p class="validity invalid">{% for type, count in result.get_results().iteritems() %}{{ count }} {{ type|title }}s{% if not loop.last %}, {% endif %}{% endfor %} found while checking this document.</p>
 	{% endif %}
 	
 	
