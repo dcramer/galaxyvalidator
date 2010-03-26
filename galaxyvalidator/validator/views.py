@@ -42,7 +42,7 @@ def results(request, result_id=None):
         #     # process uploaded file
         #     # form.cleaned_data['file'].file
         
-    form = ValidateTextForm(initial={'text': result.text})
+    form = ValidateTextForm(initial={'text': result.input})
     
     return render_to_response('validator/results.html', locals(), request)
 
