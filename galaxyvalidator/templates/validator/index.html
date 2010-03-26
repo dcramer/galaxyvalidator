@@ -1,0 +1,8 @@
+<h1>Validate Galaxy Script</h1>
+
+{% for form in forms.iteritems() %}
+	<form method="POST" action="">
+		{{ form.as_table() }}
+		<input type="submit"/>
+	</form>
+{% endfor %}

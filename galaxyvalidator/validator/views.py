@@ -33,6 +33,9 @@ def results(request, result_id=None):
     return render_to_response('validator/results.html', locals(), request)
 
 def index(request):
+    if request.POST:
+        return results(request)
+    
     forms = {
         'text': ValidateTextForm(),
     }
