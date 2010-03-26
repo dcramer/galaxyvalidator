@@ -6,7 +6,7 @@
 	{% if result.success %}
 		<p class="validity valid">There were no errors found parsing this Galaxy Script.</p>
 	{% else %}
-		<p class="validity invalid">{% for type, count in result.get_results().iteritems() %}{% if not loop.first %}, {% if loop.last %}and {% endif %}{% endif %}{{ count }} {{ type|lower }}s{% endfor %} found while checking this document.</p>
+		<p class="validity invalid">{% for type, count in result.get_results().iteritems() %}{% if not loop.first %}{% if not (loop.last and loop.index == 2) %},{% endif %} {% if loop.last %}and {% endif %}{% endif %}{{ count }} {{ type|lower }}s{% endfor %} found while checking this document.</p>
 	{% endif %}
 	
 	
