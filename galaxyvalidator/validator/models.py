@@ -21,7 +21,7 @@ class Result(models.Model):
         
         results = []
         for line in self.input.split('\n'):
-            data = p.communicate(input=self.input)
+            data = p.communicate(input=line)
             if data[1]:
                 raise LapinError(results[1])
             results.append(data[0])
