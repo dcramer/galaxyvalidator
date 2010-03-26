@@ -18,15 +18,15 @@ class Result(models.Model):
     date_added = models.DateTimeField(default=datetime.datetime.now)
     
     def get_line(self, lineno):
-        return self.output.split('\n')[int(lineno)]
+        return self.output.split('\n')[lineno]
     
     def split_output(self):
         for line in self.output.split('\n'):
             data = line.split(':')
             if data[0].lower() == 'warning':
-                yield 'Warning', data[1].rsplit(' ', 1)[-1], ':'.join(data[2:])
+                yield 'Warning', int(data[1].rsplit(' ', 1)[-1]), ':'.join(data[2:])
             else:
-                yield 'Error', data[0].rsplit(' ', 1)[-1], ':'.join(data[1:])
+                yield 'Error', int(data[0].rsplit(' ', 1)[-1]), ':'.join(data[1:])
     
     def get_results(self):
         types = {}
