@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>StarCraft 2 Galaxy Script Validator</title>
+		<link rel="stylesheet" href="{{ mediaurl('styles/global.css') }}" type="text/css" media="all">
+		<!-- <link rel="icon" href="{{ mediaurl('images/favicon.png') }}" type="image/png" /> -->
+		{% if CANONICAL_URL %}
+			<!-- Canonical -->
+			<link rel="canonical" href="{{ request.build_absolute_uri(CANONICAL_URL)|escape }}"/>
+		{% endif %}
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8" />
+		{% if META %}
+			{% for tag, value in META.iteritems() %}
+				<meta name="{{ tag }}" content="{{ value }}"/>
+			{% endfor %}
+		{% endif %}
+	</head>
+	<body>
+		{% block content %}{% endblock %}
+	</body>
+</html>

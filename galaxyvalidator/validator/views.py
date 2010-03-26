@@ -2,6 +2,8 @@ from coffin import shortcuts
 from django.template import RequestContext
 from django.http import HttpResponse
 
+from models import Result
+
 def render_to_string(template, context, request=None):
     if request:
         context_instance = RequestContext(request)
@@ -23,9 +25,10 @@ def results(request, result_id=None):
         if action == 'text':
             # process text
             form = ValidateTextForm(request.POST)
-            result = Result(input=form.cleaned_data['text'])
-            result.output = result.process()
-            result.save()
+            if form.is_valid():
+                result = Result(input=form.cleaned_data['text'])
+                result.output = result.process()
+                result.save()
         # elif action == 'upload':
         #     form = ValidateFileForm(request.POST, request.FILES)
         #     # process uploaded file

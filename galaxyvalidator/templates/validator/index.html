@@ -1,8 +1,13 @@
-<h1>Validate Galaxy Script</h1>
+{% extends "bone/bone.html" %}
 
-{% for form in forms.iteritems() %}
-	<form method="POST" action="">
-		{{ form.as_table() }}
-		<input type="submit"/>
-	</form>
-{% endfor %}
+{% block content %}
+	<h1>Validate Galaxy Script</h1>
+
+	{% for key, form in forms.iteritems() %}
+		<form method="POST" action="">
+			<input type="hidden" name="action" value="{{ key }}"/>
+			{{ form|render_form() }}
+			<input type="submit"/>
+		</form>
+	{% endfor %}
+{% endblock %}

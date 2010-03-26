@@ -1,0 +1,92 @@
+* { margin: 0; padding: 0; outline: 0; }
+strong {  }
+a { color: #14445E; }
+a:hover { text-decoration: underline; }
+p { margin: 10px; line-height: 1.3em; }
+body {
+	font-size: 100%;
+	font-size: 0.75em;
+	background: #fff;
+	padding: 30px;
+	color: #000;
+	font-family: Fontin, 'Bitstream Vera Sans', Verdana, sans-serif;
+/*	font-family:"Lucida Grande",Lucida,Verdana,sans-serif;*/
+}
+
+pre .lineno { padding-right: 5px; border-right: 4px solid #eee; text-align: right; color: #14445E; text-align: right; }
+
+acronym { cursor: help; }
+img { vertical-align: middle; text-align: left; -ms-interpolation-mode:bicubic; }
+small { font-size: 0.8em; line-height: 0.8em; padding-bottom: 3px; }
+h1, h2, h3, h4, h5, h6 { font-family:"Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; font-weight: normal;  }
+h1, h2, h3, h4, h5, h6, pre, p, ul, ol, dl, blockquote { margin: 15px 0; }
+blockquote cite { display: block; font-weight: bold; margin: -5px -5px 5px -5px; padding: 5px; background: #abc2df; }
+blockquote { padding: 5px; border: 1px solid #abc2df; background: #e5eef9; }
+blockquote blockquote { margin: 5px; }
+
+hr { color: #ddd; height: 5px; margin: 15px 0; border: 5px solid #ddd; border-width: 5px 0 0 0; }
+ul { margin-left: 15px; }
+li ol, li ul { margin-top: 0; margin-bottom: 0; }
+ol { padding-left: 45px; }
+/*select { border: 1px solid #666; background: #111; color: #fff; }*/
+pre {
+	white-space: pre-wrap;	   /* CSS-3				  */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999	*/
+	white-space: -pre-wrap;	  /* Opera 4-6			  */
+	white-space: -o-pre-wrap;	/* Opera 7				*/
+	word-wrap: break-word;	   /* Internet Explorer 5.5+ */
+	padding: 10px;
+}
+pre, code { font: 1em normal Fixed, monospace !important; }
+h1 { font-size: 1.5em; }
+h2, .huge { font-size: 1.4em; }
+h3, .big { font-size: 1.3em; }
+h4 { font-size: 1.2em; font-weight: bold; }
+h5 { font-size: 1.2em; font-weight: bold; }
+.small { font-size: 0.9em; }
+.tiny { font-size: 0.8em; }
+
+/* forms */
+legend { font-size: 1.4em; padding: 10px; margin-bottom: 10px; }
+fieldset { border: 0; border-top: 5px solid #ddd; margin-bottom: 10px; }
+div.formRow { padding: 6px 10px 6px 110px; margin: 1px 0; position: relative; background-color: #eee; }
+.box div.formRow, form div.fButtonInputRow { background: none; }
+form.wide-labels div.formRow { padding-left: 180px; }
+form.wide-labels div.formRow label { width: 170px; }
+div.formRow label { width: 100px; display: block; position: absolute; padding-left: 10px; left: 0; color: #14445E; }
+div.fRequired label { font-weight: bold; color: #14445E; background: url('../images/required.gif') 2px left no-repeat; }
+div.formRow small { padding: 5px 0 0 0; display: block; line-height: 1.2em; }
+div.fCheckboxInputRow label { position: relative; left: auto; width: auto !important; }
+div.fCheckboxInputRow input { display: inline; }
+div.noMarginRow { padding-left: 10px !important; }
+div.formRow ul.errorlist { padding: 5px 0 0 0; margin: 0; list-style-type: none; font-size: 0.8em; font-weight: bold; }
+div.fPasswordInputRow input, div.fTextInputRow input, div.fPasswordInputRow input, div.formRow div.fTextInputRow input, div.fPasswordInputRow input { width: 250px; }
+textarea { min-width: 360px; }
+input, select { vertical-align: middle; }
+div.fTextInputRow input, div.fPasswordInputRow input {
+	padding: 1px 3px;
+}
+option { padding: 0 5px; }
+div.fPasswordInputRow input, div.fTextInputRow input, select, textarea { border: 1px solid #999; color: #666; background: #f9f9f9; }
+input:focus, select:focus, textarea:focus { border-color: #777; color: #333; background: #fff; }
+textarea {
+	padding: 5px;
+}
+div.fButtonInputRow input, div.fButtonInputRow button, button, .button {
+	cursor: pointer;
+	font-weight: bold;
+	padding: 3px 8px;
+	color: #333;
+	font-size: 0.9em;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #333;
+	border-right: 1px solid #333;
+}
+div.fButtonInputRow input:hover, div.fButtonInputRow button:hover {
+	background-color: #eee;
+	color: #144453;
+}
+div.formRow .disabled { background: #eee; }
+div.fInputErrorRow, div.formRow ul.errorlist { color: red; }
+div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red; border-style: solid; }
