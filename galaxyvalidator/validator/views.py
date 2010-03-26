@@ -2,7 +2,7 @@ from coffin import shortcuts
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 
-from models import Result
+from models import Result, LapinError
 
 def render_to_string(template, context, request=None):
     if request:
