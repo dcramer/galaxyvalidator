@@ -17,6 +17,11 @@ class Result(models.Model):
     success = models.BooleanField(default=False)
     date_added = models.DateTimeField(default=datetime.datetime.now)
     
+    def split_output(self):
+        for line in result.output.split('\n'):
+            data = line.split(':', 2)
+            yield data[0], data[1].rsplit(' ', 1)[-1], data[2]
+    
     def process(self):
         output = StringIO()
         
