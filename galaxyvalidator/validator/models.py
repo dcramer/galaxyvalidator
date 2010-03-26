@@ -21,10 +21,11 @@ class Result(models.Model):
         
         results = []
         for line in self.input.split('\n'):
-            results.append(p.communicate(input=self.input))
+            data = p.communicate(input=self.input)
+            if data[1]:
+                raise LapinError(results[1])
+            results.append(data[0])
         results = '\n'.join(results)
-        if results[1]:
-            raise LapinError(results[1])
         results = results[0].split('In file "standard input"', 1)
         if len(results) == 1:
             self.success = True
