@@ -27,7 +27,6 @@
 			<ul class="result-messages">
 				{% for error, lineno, message in result.split_output() %}
 					<li class="{{ error|lower }} {{ loop.cycle(error|lower, error|lower + '-alt') }}"><span class="lineno">{{ lineno }}</span> {{ message }}</li>
-					<li class="code"><code>{{ result.get_line(lineno) }}</code></li>
 				{% endfor %}
 			</ul>
 		{% endif %}
