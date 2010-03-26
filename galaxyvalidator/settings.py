@@ -28,7 +28,7 @@ DATABASE_OPTIONS = {
 BASE_URL = ''
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-LAPIN_INCLUDE_PATH = os.path.join(PROJECT_ROOT, 'lapin', 'includes', 'Core.SC2Mod')
+LAPIN_INCLUDE_PATH = os.path.join(PROJECT_ROOT, 'lapin', 'includes', 'Core.SC2Mod') + '/'
 LAPIN_BINARY_PATH = os.path.join(PROJECT_ROOT, 'lapin', 'bin', 'lapin')
 
 JINJA2_EXTENSIONS = (
