@@ -110,5 +110,5 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 .result-messages .lineno { padding-right: 10px; display: inline-block; min-width: 40px; text-align: right; color: #666; text-align: right; }
 
 #new-post { position: absolute; right: 5px; top: 5px; }
-#input { position: absolute; bottom: 200px; }
-#output { position: absolute; bottom: 0; height: 200px; }
+/*#input { position: absolute; bottom: 200px; }
+#output { position: absolute; bottom: 0; height: 200px; }*/
