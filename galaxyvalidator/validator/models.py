@@ -12,6 +12,7 @@ class Result(models.Model):
     id = UUIDField(primary_key=True, auto=True)
     input = models.TextField()
     output = models.TextField(blank=True)
+    success = models.BooleanField(default=False)
     date_added = models.DateTimeField(default=datetime.datetime.now)
     
     def process(self):
@@ -21,9 +22,11 @@ class Result(models.Model):
         if results[1]:
             raise LapinError(results[1])
         results = results[0].split('In file "standard input"', 1)
-        if len(results) != 2:
-            raise LapinError(results[0])
-        return results[1].strip()
+        if len(results) == 1:
+            self.success = True
+            self.output = results[1].strip()
+        else:
+            self.success = False
     
     def __unicode__(self):
         return self.input[:200]

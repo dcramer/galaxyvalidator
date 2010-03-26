@@ -4,8 +4,12 @@
 	<p><strong><a href="{% url validator %}">New Post</a></strong></p>
 	
 	<h2>Results</h2>
-
-	<pre>{{ result.output }}</pre>
+	
+	{% if result.success %}
+		<p>There were no errors found parsing this Galaxy Script.</p>
+	{% else %}
+		<pre>{{ result.output }}</pre>
+	{% endif %}
 	
 	<h2>Input</h2>
 	

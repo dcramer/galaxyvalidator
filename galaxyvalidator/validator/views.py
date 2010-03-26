@@ -28,7 +28,7 @@ def results(request, result_id=None):
             if form.is_valid():
                 result = Result(input=form.cleaned_data['text'])
                 try:
-                    result.output = result.process()
+                    result.process()
                 except LapinError, exception:
                     return render_to_response('validator/error.html', locals(), request)
                 result.save()
