@@ -6,4 +6,6 @@ class ValidatorTestCase(unittest.TestCase):
     def testParser(self):
         path = os.path.join(os.path.dirname(__file__), 'test.galaxy')
         result = Result(input=open(path, 'r').read())
-        print result.process()
+        result.process()
+        print "WE ARE HERE"
+        print result.output
