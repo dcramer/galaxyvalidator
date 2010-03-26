@@ -103,13 +103,8 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 
 .result-messages { list-style-type: none; line-height: 1.6em; }
 .result-messages li { border-bottom: 1px solid #666; }
-.result-messages li .lineno { border-right: 4px solid #666; }
 .result-messages .error { background: #FDC; border-color: #E99; }
-.result-messages .erorr .lineno { border-color: #E99; }
 .result-messages .error-alt { background: #FED; border-color: #E88; }
-.result-messages .error-alt .lineno { border-color: #E88; }
 .result-messages .warning { background: #FFB; border-color: #EEA; }
-.result-messages .warning .lineno { border-color: #DD8; }
 .result-messages .warning-alt { background: #FFD; border-color: #DD8; }
-.result-messages .warning-alt .lineno { border-color: #EEA; }
-.result-messages .lineno { padding-right: 5px; display: inline-block; min-width: 40px; border-right: 4px solid inherit; text-align: right; color: #666; text-align: right; }
+.result-messages .lineno { padding-right: 10px; display: inline-block; min-width: 40px; text-align: right; color: #666; text-align: right; }
