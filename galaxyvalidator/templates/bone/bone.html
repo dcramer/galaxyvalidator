@@ -18,7 +18,15 @@
 		{% endif %}
 	</head>
 	<body>
-		<h1><a href="{% url validator %}">StarCraft 2 Galaxy Script Validator</a></h1>
-		{% block content %}{% endblock %}
+		<div id="wrapper">
+			<div id="header">
+				<h1><a href="{% url validator %}">StarCraft 2 Galaxy Script Validator</a></h1>
+			</div>
+			<div id="content">
+				{% block content %}{% endblock %}
+			</div>
+			<div id="footer">
+				<p>Brought to you by <a href="http://sc2.nibbits.com/">Nibbits</a> | Powered by <a href="http://sc2.nibbits.com/assets/lapins-galaxy-syntax-validator/">Lapin's Galaxy Syntax Validator</a></p>
+			</div>
 	</body>
 </html>

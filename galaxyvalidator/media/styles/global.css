@@ -7,7 +7,6 @@ body {
 	font-size: 100%;
 	font-size: 0.75em;
 	background: #fff;
-	padding: 30px;
 	color: #000;
 	font-family: Fontin, 'Bitstream Vera Sans', Verdana, sans-serif;
 /*	font-family:"Lucida Grande",Lucida,Verdana,sans-serif;*/
@@ -47,14 +46,13 @@ h5 { font-size: 1.2em; font-weight: bold; }
 .tiny { font-size: 0.8em; }
 
 /* forms */
-legend { font-size: 1.4em; padding: 10px; margin-bottom: 10px; }
+legend { font-size: 1.4em; padding: 10px 10px 10px 0; margin-bottom: 10px; }
 fieldset { border: 0; border-top: 5px solid #ddd; margin-bottom: 10px; }
-div.formRow { padding: 6px 10px 6px 110px; margin: 1px 0; position: relative; background-color: #eee; }
+div.formRow { padding: 5px 0; margin: 1px 0; position: relative; }
 .box div.formRow, form div.fButtonInputRow { background: none; }
 form.wide-labels div.formRow { padding-left: 180px; }
 form.wide-labels div.formRow label { width: 170px; }
-div.formRow label { width: 100px; display: block; position: absolute; padding-left: 10px; left: 0; color: #14445E; }
-div.fRequired label { font-weight: bold; color: #14445E; background: url('../images/required.gif') 2px left no-repeat; }
+div.formRow label { display: none; }
 div.formRow small { padding: 5px 0 0 0; display: block; line-height: 1.2em; }
 div.fCheckboxInputRow label { position: relative; left: auto; width: auto !important; }
 div.fCheckboxInputRow input { display: inline; }
@@ -90,3 +88,15 @@ div.fButtonInputRow input:hover, div.fButtonInputRow button:hover {
 div.formRow .disabled { background: #eee; }
 div.fInputErrorRow, div.formRow ul.errorlist { color: red; }
 div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red; border-style: solid; }
+
+#wrapper { padding: 20px; }
+#header h1 {
+	margin-top: 0;
+	font-size: 3em;
+	font-weight: normal;
+	margin-bottom: 20px;
+}
+#header h1 a { text-decoration: none; }
+#footer {
+	margin-top: 20px;
+}
