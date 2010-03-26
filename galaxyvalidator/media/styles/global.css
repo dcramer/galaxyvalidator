@@ -102,8 +102,9 @@ div.fErrors input, div.fErrors select, div.fErrors textarea { border-color: red;
 }
 
 .result-messages { list-style-type: none; line-height: 1.5em; }
+.result-messages li { border-color: #666; }
 .result-messages .error { background: #FDC; border-color: #E99; }
 .result-messages .error-alt { background: #FED; border-color: #E88; }
 .result-messages .warning { background: #EEA; border-color: #EEA; }
 .result-messages .warning-alt { background: #FFD; border-color: #DD8; }
-.result-messages .lineno { padding-right: 5px; display: inline-block; min-width: 40px; border-right: 4px solid #666; text-align: right; color: #666; text-align: right; }
+.result-messages .lineno { padding-right: 5px; display: inline-block; min-width: 40px; border-right: 4px solid inherit; text-align: right; color: #666; text-align: right; }
