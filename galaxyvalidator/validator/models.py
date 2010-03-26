@@ -31,12 +31,12 @@ class Result(models.Model):
         
         version = results[0]
         
-        results = results[6:-2].strip()
+        results = '\n'.join(results[6:-2]).strip()
 
         if not results:
             self.success = True
         else:
-            self.output = '\n'.join(results)
+            self.output = results
             self.success = False
     
     def __unicode__(self):
