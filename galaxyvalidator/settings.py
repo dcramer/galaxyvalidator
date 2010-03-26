@@ -16,8 +16,8 @@ EMAIL_FROM_ADDRESS = 'noreply@nibbits.com'
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'mysql'
-DATABASE_NAME = 'nibbits'
-DATABASE_USER = 'nibbits'
+DATABASE_NAME = 'galaxyvalidator'
+DATABASE_USER = 'galaxyvalidator'
 DATABASE_PASSWORD = ''
 DATABASE_HOST = 'localhost'
 DATABASE_PORT = ''
