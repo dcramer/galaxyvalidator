@@ -20,6 +20,9 @@ from forms import *
 def results(request, result_id=None):
     if result_id:
         result = Result.objects.get(pk=result_id)
+        # XXX: remove this when it works
+        result.process()
+        result.save()
     else:
         action = request.POST.get('action')
         if action == 'text':
