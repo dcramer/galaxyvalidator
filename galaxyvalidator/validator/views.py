@@ -1,6 +1,6 @@
 from coffin import shortcuts
 from django.template import RequestContext
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 from models import Result
 
@@ -29,6 +29,7 @@ def results(request, result_id=None):
                 result = Result(input=form.cleaned_data['text'])
                 result.output = result.process()
                 result.save()
+                return HttpResponseRedirect(result.get_absolute_url())
         # elif action == 'upload':
         #     form = ValidateFileForm(request.POST, request.FILES)
         #     # process uploaded file

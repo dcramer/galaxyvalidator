@@ -17,4 +17,10 @@ class Result(models.Model):
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         results = p.communicate(input=self.input)[0]
         return results.split('In file "standard input"', 1)[1].strip()
-        
+    
+    def __unicode__(self):
+        return self.input[:200]
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return ('results.details', (), {'result_id': self.id})
