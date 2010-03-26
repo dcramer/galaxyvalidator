@@ -10,7 +10,7 @@
 	{% endif %}
 	
 	
-	<div style="overflow:auto;" id="input">
+	<div id="input">
 		<form method="POST" action="/">
 			<input type="hidden" name="action" value="text"/>
 			{{ form|render_form() }}
@@ -18,7 +18,7 @@
 		</form>
 	</div>
 	
-	<div style="overflow:auto;" id="output">
+	<div id="output">
 		{% if not result.success %}
 			<h2>Validation Errors</h2>
 
