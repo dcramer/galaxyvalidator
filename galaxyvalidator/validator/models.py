@@ -46,7 +46,7 @@ class Result(models.Model):
     def process(self):
         output = StringIO()
         
-        args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-B', 'TriggerLibs/NativeLib_beta.galaxy', '-']
+        args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-B', settings.LAPIN_INCLUDE_PATH, '-']
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         
         results = p.communicate(input=self.input)
@@ -57,7 +57,7 @@ class Result(models.Model):
         
         version = results[0]
         
-        results = '\n'.join([r.strip() for r in results[6:-4]]).strip()
+        results = '\n'.join([r.strip() for r in results[6:]]).strip()
 
         if not results:
             self.success = True
