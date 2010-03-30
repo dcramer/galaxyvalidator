@@ -3,8 +3,6 @@ from django.conf import settings
 
 from fields import *
 
-from cStringIO import StringIO
-
 import datetime
 import subprocess
 
@@ -44,8 +42,6 @@ class Result(models.Model):
         return types
     
     def process(self):
-        output = StringIO()
-        
         args = [settings.LAPIN_BINARY_PATH, '-I', settings.LAPIN_INCLUDE_PATH, '-B', settings.LAPIN_INCLUDE_PATH, '-']
         p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         

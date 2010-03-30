@@ -116,3 +116,13 @@ register.object(mediaversion)
 def mediaurl(value, arg=None):
     return "%s%s?%s" % (settings.MEDIA_URL, value, mediaversion(value))
 register.object(mediaurl)
+
+import subprocess
+def get_lapin_version():
+    args = [settings.LAPIN_BINARY_PATH, '-v']
+    p = subprocess.Popen(args, stdout=subprocess.PIPE)
+    
+    results = p.communicate()
+    if results[1]:
+        return
+    return results[0]
