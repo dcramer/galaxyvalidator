@@ -126,3 +126,4 @@ def get_lapin_version():
     if results[1]:
         return
     return results[0]
+register.object(get_lapin_version)
