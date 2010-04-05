@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     (r'^favicon.ico$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT, 'path': '/images/favicon.ico'}),
 
-    url(r'^robots\.txt$', 'coffin.views.generic.simple.direct_to_template', {'template': 'robots.txt', 'mimetype': 'text/plain'}),
+    #url(r'^robots\.txt$', 'coffin.views.generic.simple.direct_to_template', {'template': 'robots.txt', 'mimetype': 'text/plain'}),
 
     (r'^admin/(.*)', admin.site.root),
 
