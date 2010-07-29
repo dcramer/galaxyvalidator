@@ -61,7 +61,7 @@ TEMPLATE_LOADERS = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'nibbits.accounts.backends.EmailOrUsernameModelBackend',
+    #'nibbits.accounts.backends.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
